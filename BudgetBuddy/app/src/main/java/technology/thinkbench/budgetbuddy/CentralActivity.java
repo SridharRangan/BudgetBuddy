@@ -43,16 +43,28 @@ public class CentralActivity extends AppCompatActivity {
                 transaction1.commit();
                 return true;
             case R.id.option_edit:
-                MainFragment fragment2 = new MainFragment();
+                EditFragment fragment2 = new EditFragment();
                 FragmentTransaction transaction2 = getSupportFragmentManager().beginTransaction();
                 transaction2.replace(R.id.fragment_container, fragment2);
                 transaction2.commit();
                 return true;
             case R.id.option_history:
-                MainFragment fragment3 = new MainFragment();
+                HistoryFragment fragment3 = new HistoryFragment();
                 FragmentTransaction transaction3 = getSupportFragmentManager().beginTransaction();
                 transaction3.replace(R.id.fragment_container, fragment3);
                 transaction3.commit();
+                return true;
+            case R.id.option_graphs:
+                GraphFragment fragment4 = new GraphFragment();
+                FragmentTransaction transaction4 = getSupportFragmentManager().beginTransaction();
+                transaction4.replace(R.id.fragment_container, fragment4);
+                transaction4.commit();
+                return true;
+            case R.id.option_tips:
+                TipsFragment fragment5 = new TipsFragment();
+                FragmentTransaction transaction5 = getSupportFragmentManager().beginTransaction();
+                transaction5.replace(R.id.fragment_container, fragment5);
+                transaction5.commit();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

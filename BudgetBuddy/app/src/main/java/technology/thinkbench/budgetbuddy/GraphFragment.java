@@ -6,15 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 
 
-public class MainFragment extends android.support.v4.app.Fragment {
+public class GraphFragment extends android.support.v4.app.Fragment {
 
-    public MainFragment() {
+    public GraphFragment() {
         // Required empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+        View rootView = inflater.inflate(R.layout.fragment_graph, container, false);
 
 
         return rootView;
