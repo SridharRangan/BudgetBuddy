@@ -67,6 +67,10 @@
             android:name=".CentralActivity"
             android:screenOrientation="portrait">
         </activity>
+        <provider
+            android:name=".data.DataProvider"
+            android:authorities="technology.thinkbench.budgetbuddy"
+            android:exported="false" />
     </application>
 
 </manifest>

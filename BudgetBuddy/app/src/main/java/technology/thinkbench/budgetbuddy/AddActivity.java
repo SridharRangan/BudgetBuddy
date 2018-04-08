@@ -25,19 +25,9 @@ import technology.thinkbench.budgetbuddy.data.DataContract.ExpenditureEntry;
 
 public class AddActivity extends AppCompatActivity{
 
-    /** Identifier for the pet data loader */
-    private static final int EXISTING_PET_LOADER = 0;
 
-    /** Content URI for the existing pet (null if it's a new pet) */
-    private Uri mCurrentExpenditureUri;
-
-    /** EditText field to enter the pet's name */
     private EditText mLabelEditText;
-
-    /** EditText field to enter the pet's breed */
     private EditText mAmountEditText;
-
-    /** EditText field to enter the pet's weight */
     private EditText mTagEditText;
 
     @Override
@@ -53,7 +43,7 @@ public class AddActivity extends AppCompatActivity{
     }
 
 
-    private void saveExpenditure() {
+    public void saveExpenditure(View view) {
         // Read from input fields
         // Use trim to eliminate leading or trailing white space
         String nameString = mLabelEditText.getText().toString().trim();
@@ -75,9 +65,12 @@ public class AddActivity extends AppCompatActivity{
         if (newUri == null) {
             // If the new content URI is null, then there was an error with insertion.
             Toast.makeText(this, "Whoops! Something went wrong!", Toast.LENGTH_SHORT).show();
+
         } else {
             // Otherwise, the insertion was successful and we can display a toast.
             Toast.makeText(this, "Added Expenditure", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, CentralActivity.class);
+            startActivity(intent);
         }
     }
 

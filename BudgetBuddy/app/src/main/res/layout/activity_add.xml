@@ -9,7 +9,7 @@
 
     <!-- Label -->
     <TextView
-        android:text="Enter the details"
+        android:text="Enter the details of the expenditure:"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
@@ -26,14 +26,14 @@
     <EditText
         android:id="@+id/edit_expenditure_amount"
         android:hint="Expenditure Amount"
-        android:inputType="textCapWords"
+        android:inputType="number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
 
     <!-- Tag -->
     <TextView
-        android:text="Tag Spot?"
+        android:text="Tag your expense:"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
@@ -41,8 +41,8 @@
     <!-- Weight field -->
     <EditText
         android:id="@+id/edit_expenditure_tag"
-        android:hint="quantity"
-        android:inputType="number"
+        android:hint="Tag"
+        android:inputType="textCapWords"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
