@@ -13,10 +13,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:textAppearance="?android:textAppearanceMedium"/>
-    <com.jjoe64.graphview.GraphView
-        android:layout_width="match_parent"
-        android:layout_height="200dip"
-        android:id="@+id/graph"/>
 
 
 </RelativeLayout>

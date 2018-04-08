@@ -66,12 +66,14 @@ public class LoginActivity extends AppCompatActivity {
                     String user = temp.get("user").getAsString();
                     String tz = temp.get("tz").getAsString();
                     String email = "";
+                    String tut = temp.get("tut").getAsString();
                     if(!temp.get("email").isJsonNull()){
                         email = temp.get("email").getAsString();
                     }
                     Log.d("Testing", user);
                     Log.d("Testing", email);
                     Log.d("Testing",tz);
+                    Log.d("Testing",tut);
                     SharedPreferences sharedPreferences = getDefaultSharedPreferences(this);
                     SharedPreferences.Editor editor = sharedPreferences.edit();
                     editor.putString("User", user);
@@ -93,9 +95,8 @@ public class LoginActivity extends AppCompatActivity {
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
 
-                    Boolean tut = temp.get("tut").getAsBoolean();
                     Intent intent;
-                    if(tut){
+                    if(tut.equalsIgnoreCase("1")){
                         intent = new Intent(this, CentralActivity.class);
                     }else{
                         intent = new Intent(this, TutorialActivity.class);

@@ -91,6 +91,19 @@
       }
       break;
 
+    case "tut":
+      $user = mysqli_real_escape_string($connection, $_GET['user']);
+      $query = "UPDATE Users SET tut = 1 WHERE user = '$user'";
+      $qry_result = mysqli_query($connection, $query);
+      if($qry_result->affected_rows > 0){
+        $returnObj->retval = true;
+        $returnObj->message = "tutorial completed";
+      }else{
+        $returnObj->retval = false;
+        $returnObj->message = "failure to complete tutorial";
+      }
+      break;
+
     default:
       $returnObj->retval = false;
       $returnObj->message = "ERROR: no type specified";
