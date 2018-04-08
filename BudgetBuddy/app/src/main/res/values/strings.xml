@@ -13,4 +13,9 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="Tutorial_Welcome">Welcome to BudgetBuddy! This app will help plan out your budget and help you to save money.
+        We want for our users to be budget conscious and to develop proper spending habits.</string>
+    <string name="Tutorial_Welcome2">This tutorial will teach you the basics of the app and how to track and view expenses.  Let’s start!</string>
+    <string name="Entering_Income">First, how much income do you have each month? (Estimate if you need but for best results try to calculate monthly income)</string>
+    <string name="Save_Per_Month">And how much would you like to save each month (Either percentage or dollar amount)?</string>
 </resources>
