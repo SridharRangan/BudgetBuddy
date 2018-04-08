@@ -79,7 +79,7 @@ public class MakeAccountActivity extends AppCompatActivity {
             editor.remove("Password");
             editor.apply();
             //end new
-            Intent makeIntent = new Intent(this, CentralActivity.class);
+            Intent makeIntent = new Intent(this, TutorialActivity.class);
             startActivity(makeIntent);
         }else{
             CharSequence text = jsonObject.get("message").getAsString();

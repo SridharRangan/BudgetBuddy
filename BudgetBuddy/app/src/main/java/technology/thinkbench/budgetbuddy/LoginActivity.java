@@ -92,7 +92,15 @@ public class LoginActivity extends AppCompatActivity {
                     CharSequence text = "Logged in!";
                     Toast toast = Toast.makeText(context, text, duration);
                     toast.show();
-                    Intent intent = new Intent(this, CentralActivity.class);
+
+                    Boolean tut = temp.get("tut").getAsBoolean();
+                    Intent intent;
+                    if(tut){
+                        intent = new Intent(this, CentralActivity.class);
+                    }else{
+                        intent = new Intent(this, TutorialActivity.class);
+                    }
+
                     startActivity(intent);
                 } else {
                     CharSequence text = "User/Pass incorrect";
@@ -114,18 +122,6 @@ public class LoginActivity extends AppCompatActivity {
         String pass = temp2.getText().toString();
 
         String args = "?type=login&user=" + user + "&pass=" + pass;
-
-        /*
-        // Get a reference to the LoaderManager, in order to interact with loaders.
-        LoaderManager loaderManager = getLoaderManager();
-
-        // Initialize the loader. Pass in the int ID constant defined above and pass in null for
-        // the bundle. Pass in this activity for the LoaderCallbacks parameter (which is valid
-        // because this activity implements the LoaderCallbacks interface).
-        Bundle bundle = new Bundle();
-        bundle.putString("data", args);
-        loaderManager.initLoader(LOGIN_REQUEST, bundle, this);
-        */
 
         PendingIntent pendingResult = createPendingResult(LOGIN_REQUEST, new Intent(), 0);
         Intent intent = new Intent(getApplicationContext(), DownloadIntentService.class);
