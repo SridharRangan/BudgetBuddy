@@ -26,7 +26,7 @@
     <EditText
         android:id="@+id/edit_expenditure_amount"
         android:hint="Expenditure Amount"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
