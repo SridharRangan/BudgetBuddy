@@ -32,16 +32,13 @@ public class AddActivity extends AppCompatActivity{
     private Uri mCurrentExpenditureUri;
 
     /** EditText field to enter the pet's name */
-    private EditText mNameEditText;
+    private EditText mLabelEditText;
 
     /** EditText field to enter the pet's breed */
     private EditText mAmountEditText;
 
     /** EditText field to enter the pet's weight */
-    private EditText mLabelEditText;
-
-    /** EditText field to enter the pet's gender */
-    private EditText mGenderEditText;
+    private EditText mTagEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +46,9 @@ public class AddActivity extends AppCompatActivity{
         setContentView(R.layout.activity_add);
 
         // Find all relevant views that we will need to read user input from
-        mNameEditText = (EditText) findViewById(R.id.edit_pet_name);
-        mBreedEditText = (EditText) findViewById(R.id.edit_pet_breed);
-        mWeightEditText = (EditText) findViewById(R.id.edit_pet_weight);
-        mGenderEditText = (EditText) findViewById(R.id.edit_pet_gender);
+        mLabelEditText = (EditText) findViewById(R.id.edit_expenditure_label);
+        mAmountEditText = (EditText) findViewById(R.id.edit_expenditure_amount);
+        mTagEditText = (EditText) findViewById(R.id.edit_expenditure_tag);
 
     }
 

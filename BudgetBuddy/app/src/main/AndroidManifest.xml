@@ -40,6 +40,18 @@
         </activity>
 
         <activity
+            android:name=".TutorialActivity"
+            android:label="Tutorial"
+            android:parentActivityName=".LoginActivity"
+            android:screenOrientation="portrait">
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".LoginActivity" />
+        </activity>
+
+        <activity
             android:name=".AddActivity"
             android:label="New Expenditure"
             android:parentActivityName=".CentralActivity"
