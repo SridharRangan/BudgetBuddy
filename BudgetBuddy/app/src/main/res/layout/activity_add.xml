@@ -7,66 +7,44 @@
     android:orientation="vertical"
     tools:context=".AddActivity">
 
-    <!-- Overview category -->
-    <LinearLayout
+    <!-- Label -->
+    <TextView
+        android:text="Enter the details"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <!-- Label -->
-        <TextView
-            android:text="Enter the details"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <!-- Input fields -->
-        <LinearLayout
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:paddingLeft="4dp"
-            android:orientation="vertical">
-
-            <!-- Label field -->
-            <EditText
-                android:id="@+id/edit_expenditure_label"
-                android:hint="Expenditure Label"
-                android:inputType="textCapWords"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-
-            <!-- Amount field -->
-            <EditText
-                android:id="@+id/edit_expenditure_amount"
-                android:hint="Expenditure Amount"
-                android:inputType="textCapWords"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-    </LinearLayout>
+        android:layout_height="wrap_content"/>
 
 
-        <!-- Tag -->
-        <TextView
-            android:text="Tag Spot?"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+    <!-- Label field -->
+    <EditText
+        android:id="@+id/edit_expenditure_label"
+        android:hint="Expenditure Label"
+        android:inputType="textCapWords"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-        <!-- Input field -->
-        <RelativeLayout
-            android:layout_height="wrap_content"
-            android:layout_width="0dp"
-            android:layout_weight="2"
-            android:paddingLeft="4dp">
+    <!-- Amount field -->
+    <EditText
+        android:id="@+id/edit_expenditure_amount"
+        android:hint="Expenditure Amount"
+        android:inputType="textCapWords"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-            <!-- Weight field -->
-            <EditText
-                android:id="@+id/edit_expenditure_tag"
-                android:hint="quantity"
-                android:inputType="number"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-        </RelativeLayout>
+
+    <!-- Tag -->
+    <TextView
+        android:text="Tag Spot?"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+
+    <!-- Weight field -->
+    <EditText
+        android:id="@+id/edit_expenditure_tag"
+        android:hint="quantity"
+        android:inputType="number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <Button
         android:id="@+id/savebutton"
