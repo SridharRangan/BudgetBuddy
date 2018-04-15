@@ -117,7 +117,7 @@ public class DataProvider extends ContentProvider {
         final int match = sUriMatcher.match(uri);
         switch (match) {
             case EXPENDITURES:
-                return insertPet(uri, contentValues);
+                return insertExpenditure(uri, contentValues);
             default:
                 throw new IllegalArgumentException("Insertion is not supported for " + uri);
         }
@@ -127,7 +127,7 @@ public class DataProvider extends ContentProvider {
      * Insert a pet into the database with the given content values. Return the new content URI
      * for that specific row in the database.
      */
-    private Uri insertPet(Uri uri, ContentValues values) {
+    private Uri insertExpenditure(Uri uri, ContentValues values) {
         // Check that the label is not null
         String label = values.getAsString(ExpenditureEntry.COLUMN_EXPENDITURE_LABEL);
         if (label == null) {
@@ -135,7 +135,7 @@ public class DataProvider extends ContentProvider {
         }
 
         // Check that the amount is valid
-        Integer amount = values.getAsInteger(ExpenditureEntry.COLUMN_EXPENDITURE_AMOUNT);
+        Double amount = values.getAsDouble(ExpenditureEntry.COLUMN_EXPENDITURE_AMOUNT);
         if (amount == null || amount <= 0) {
             throw new IllegalArgumentException("Expenditure requires valid amount");
         }

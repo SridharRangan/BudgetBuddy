@@ -17,8 +17,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import technology.thinkbench.budgetbuddy.data.DataContract.ExpenditureEntry;
@@ -28,7 +31,8 @@ public class AddActivity extends AppCompatActivity{
 
     private EditText mLabelEditText;
     private EditText mAmountEditText;
-    private EditText mTagEditText;
+    private String mTagEditText;
+    private Spinner spinner;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +42,24 @@ public class AddActivity extends AppCompatActivity{
         // Find all relevant views that we will need to read user input from
         mLabelEditText = (EditText) findViewById(R.id.edit_expenditure_label);
         mAmountEditText = (EditText) findViewById(R.id.edit_expenditure_amount);
-        mTagEditText = (EditText) findViewById(R.id.edit_expenditure_tag);
+        spinner = (Spinner) findViewById(R.id.tag_spinner);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.tags_array,
+                android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setSelection(4);
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> parent, View v, int pos, long id) {
+                mTagEditText = parent.getItemAtPosition(pos).toString();
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
     }
 
@@ -48,7 +69,7 @@ public class AddActivity extends AppCompatActivity{
         // Use trim to eliminate leading or trailing white space
         String nameString = mLabelEditText.getText().toString().trim();
         String amountString = mAmountEditText.getText().toString().trim();
-        String tagString = mTagEditText.getText().toString().trim();
+        String tagString = mTagEditText;
 
 
         // Create a ContentValues object where column names are the keys,

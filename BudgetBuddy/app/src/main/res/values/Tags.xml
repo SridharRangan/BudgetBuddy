@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tags_array">
+        <item>Groceries</item>
+        <item>Rent</item>
+        <item>Gas</item>
+        <item>Misc.</item>
+        <item>Eating Out</item>
+        <item>Coffee</item>
+        <item>Games</item>
+    </string-array>
+</resources>

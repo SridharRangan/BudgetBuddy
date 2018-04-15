@@ -37,14 +37,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-
-    <!-- Weight field -->
-    <EditText
-        android:id="@+id/edit_expenditure_tag"
-        android:hint="Tag"
-        android:inputType="textCapWords"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <Spinner
+        android:id="@+id/tag_spinner"
+        android:layout_marginTop="10dp"
+        android:layout_width="200dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="50dp"></Spinner>
 
     <Button
         android:id="@+id/savebutton"

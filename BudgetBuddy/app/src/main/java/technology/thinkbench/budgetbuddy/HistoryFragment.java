@@ -1,18 +1,12 @@
 package technology.thinkbench.budgetbuddy;
 
-import android.content.ContentUris;
-import android.content.CursorLoader;
 import android.content.Intent;
-import android.support.v4.content.Loader;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.app.LoaderManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ListView;
 
 import technology.thinkbench.budgetbuddy.data.DataContract.ExpenditureEntry;
@@ -32,16 +26,6 @@ public class HistoryFragment extends android.support.v4.app.Fragment implements 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_history, container, false);
-
-        // Setup FAB to open EditorActivity
-        FloatingActionButton fab = (FloatingActionButton) rootView.findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), AddActivity.class);
-                startActivity(intent);
-            }
-        });
 
         // Find the ListView which will be populated with the pet data
         ListView expenditureListView = (ListView) rootView.findViewById(R.id.list);
