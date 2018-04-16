@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center">
 
     <ImageView
         android:id="@+id/logotop"
@@ -11,29 +12,10 @@
         android:layout_height="125dp"
         android:layout_gravity="center"/>
 
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="username"
-        android:layout_marginTop="6dp"
-        android:layout_marginBottom="4dp"/>
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:hint="password"
-        android:layout_marginBottom="4dp"/>
-
     <Button
         android:id="@+id/log_in"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
         android:text="Log In"
         android:layout_marginBottom="4dp"
         android:layout_marginLeft="4dp"
@@ -41,48 +23,20 @@
         android:paddingBottom="2dp"
         android:paddingTop="2dp"
         android:onClick="try_login"/>
-
-    <LinearLayout
+    
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="7dp"
-        android:layout_marginTop="4dp"
-        android:weightSum="2">
+        android:layout_height="50dp" />
 
-        <Button
-            android:id="@+id/sign_up"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Create Account"
-            android:onClick="make_account"
-            android:paddingBottom="2dp"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="3dp"/>
-
-        <Button
-            android:id="@+id/forgot_password"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingBottom="2dp"
-            android:paddingTop="2dp"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="4dp"
-            android:layout_weight="1"
-            android:text="Forgot Password"
-            android:onClick="forgot_password"/>
-
-    </LinearLayout>
-
-    <CheckBox
-        android:id="@+id/login_rpw"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Remember Password"
+    <Button
+        android:id="@+id/forgot_password"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
         android:paddingBottom="2dp"
-        android:layout_gravity="center"
-        android:paddingTop="7dp"
-        android:paddingRight="2dp"
-        android:paddingLeft="2dp"/>
+        android:paddingTop="2dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:text="Forgot PIN"
+        android:onClick="forgot_password"/>
 
 </LinearLayout>
