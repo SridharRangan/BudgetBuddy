@@ -18,4 +18,19 @@
     <string name="Tutorial_Welcome2">This tutorial will teach you the basics of the app and how to track and view expenses.  Let’s start!</string>
     <string name="Entering_Income">First, how much income do you have each month? (Estimate if you need but for best results try to calculate monthly income)</string>
     <string name="Save_Per_Month">And how much would you like to save each month (Either percentage or dollar amount)?</string>
+    
+    
+        <string name="Intro_Screenshot">The page below is one of the first pages you will see when using BudgetBuddy.
+        On this page you can enter your expenses for a set time.  For this example, we will record our monthly expenses. </string>
+    <string name="Set_budget">After entering your monthly expenses, we now need to set a budget!
+        Based of your expenses that you have inputted try coming up with a budget based off your income.  When creating a budget try to account for both regular and irregular expenses that occur to give a little bit of buffer room in case.
+        Below is an example.</string>
+    <string name="cost_saving">Now that you have inputted expenses and made a budget the next step is to start saving money.
+        Go back and view your expenses and compare that to your set budget.
+        Look at your expenses and determine which are essential and non-essential.
+        If you see many non-essential costs, it may be time to cut back in certain areas to save!</string>
+    <string name="goal_and_tips">Finally choose something to save for! Set a goal for what you want to save towards.  This can be either short term or long-term goals.  Make sure to write down your goal so that you can remind yourself of what you are saving for.
+        We wish you the best in your budgeting journey.  If you have further questions, please visit the Tips page where you can see more information about budgeting.
+In addition to expenditure tracking we also have a variety of budgeting tips on the tips page to help you with your budgeting adventure.
+</string>
 </resources>
