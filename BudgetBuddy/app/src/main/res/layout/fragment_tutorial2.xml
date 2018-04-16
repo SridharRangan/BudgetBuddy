@@ -5,14 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <TextView
+<TextView
         android:id="@+id/empty_view"
-        android:text="Tutorial2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textAppearance="?android:textAppearanceMedium"/>
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="12dp"
+        android:text="@string/Set_budget"
+        android:textSize="7pt"
+        android:textStyle="bold"
+
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="171dp"
+        android:text="@string/cost_saving"
+        android:textSize="7pt"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="37dp"
+        android:text="@string/goal_and_tips"
+        android:textSize="7pt"
+        android:textStyle="bold" />
 
 
 </RelativeLayout>
