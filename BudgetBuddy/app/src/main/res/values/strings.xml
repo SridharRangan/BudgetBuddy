@@ -10,12 +10,13 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
-    <string name="Tutorial_Welcome">Welcome to BudgetBuddy! This app will help plan out your budget and help you to save money.
-        We want for our users to be budget conscious and to develop proper spending habits.</string>
-    <string name="Tutorial_Welcome2">This tutorial will teach you the basics of the app and how to track and view expenses.  Let’s start!</string>
-    <string name="Entering_Income">First, how much income do you have each month? (Estimate if you need but for best results try to calculate monthly income)</string>
-    <string name="Save_Per_Month">And how much would you like to save each month (Either percentage or dollar amount)?</string>
+    <string name="Tutorial_Welcome">Welcome to BudgetBuddy! The goal of this app is to help you become more concious of the day to day spending choices you make.</string>
+    <string name="Tutorial_Welcome2">This tutorial will show you the basics of the app, and get some basic information to work with.</string>
+    <string name="Tutorial_Welcome3">We want out users to be budget conscious, and to develop proper spending habits!</string>
+    <string name="Tutorial_Desc">The first thing you will see when you log in is a graph that plots the total amount you\'ve spent so far in a month. Whenever you spend money, you can use the (+) button in the lower right to enter details about your purchase. All of the information gathered in this app is stored locally, and is used to generate statistics about your spending habits.</string>
+    <string name="Tutorial_Desc2">Be sure to check out the other pages accessible through the menu!</string>
+    <string name="Tutorial_Desc3"></string>
+    <string name="Tutorial_DataIntro">Now we just need some basic information to help chart your spending.</string>
+    <string name="Tutorial_Data">First, how much income do you have each month?</string>
+    <string name="Tutorial_Data2">And how much would you like to save each month? (Use the dropdown menu to switch between a flat amount and a percentage)</string>
 </resources>

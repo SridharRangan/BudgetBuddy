@@ -22,7 +22,7 @@ public class PinActivity extends AppCompatActivity implements View.OnClickListen
     private static final int PIN_CHECK = 0;
     private static final int PIN_SET = 1;
     private static final int PIN_VERIFY = 2;
-    int mode = 0;
+    int mode = PIN_CHECK;
     int count = 0;
     int pin = 0, hold;
     ImageView i1, i2, i3, i4;
@@ -33,9 +33,11 @@ public class PinActivity extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pin);
 
+        mode = getIntent().getIntExtra("Mode", PIN_CHECK);
+
         title = (TextView) findViewById(R.id.pin_header);
         if(mode == PIN_SET){
-            title.setText("Enter a PIN to secure your information");
+            title.setText("Step 1: Create a PIN to secure your information");
         }else{
             title.setText("Enter your PIN");
         }
@@ -63,12 +65,20 @@ public class PinActivity extends AppCompatActivity implements View.OnClickListen
         Button zero = (Button) findViewById(R.id.button0);
         zero.setOnClickListener(this);
 
-        mode = getIntent().getIntExtra("Mode", 0);
-
         i1 = (ImageView) findViewById(R.id.imageview_circle1);
         i2 = (ImageView) findViewById(R.id.imageview_circle2);
         i3 = (ImageView) findViewById(R.id.imageview_circle3);
         i4 = (ImageView) findViewById(R.id.imageview_circle4);
+    }
+
+    @Override
+    protected void onRestart(){
+        super.onRestart();
+        title.setText("Enter your PIN");
+        mode = PIN_CHECK;
+        count = 0;
+        pin = 0;
+        resetCircles();
     }
 
     private void resetCircles(){
@@ -76,6 +86,25 @@ public class PinActivity extends AppCompatActivity implements View.OnClickListen
         i2.setImageResource(R.drawable.circle);
         i3.setImageResource(R.drawable.circle);
         i4.setImageResource(R.drawable.circle);
+    }
+
+    private void nextActivity(){
+        SharedPreferences sharedPreferences = getDefaultSharedPreferences(this);
+        Intent intent;
+
+        if(sharedPreferences.contains("Tut") && sharedPreferences.getBoolean("Tut", false)){
+            intent = new Intent(getApplicationContext(), CentralActivity.class);
+
+        }else{
+            intent = new Intent(getApplicationContext(), TutorialActivity.class);
+        }
+
+        if(false) {
+            Log.d("DEBUG", "in shortcut");
+            intent = new Intent(getApplicationContext(), CentralActivity.class);
+        }
+
+        startActivity(intent);
     }
 
     private void verify(){
@@ -92,8 +121,7 @@ public class PinActivity extends AppCompatActivity implements View.OnClickListen
                     if (temp == pin) {
                         Toast toast = Toast.makeText(this, "Logged on!", Toast.LENGTH_SHORT);
                         toast.show();
-                        Intent intent = new Intent(getApplicationContext(), CentralActivity.class);
-                        startActivity(intent);
+                        nextActivity();
                     } else {
                         pin = 0;
                         resetCircles();
@@ -110,7 +138,7 @@ public class PinActivity extends AppCompatActivity implements View.OnClickListen
                 hold = pin;
                 pin = 0;
                 resetCircles();
-                title.setText("Re-enter your PIN");
+                title.setText("Step 2: Re-enter your PIN");
                 break;
 
             case PIN_VERIFY:
@@ -121,14 +149,13 @@ public class PinActivity extends AppCompatActivity implements View.OnClickListen
                     editor.apply();
                     Toast toast = Toast.makeText(this, "PIN entered successfully", Toast.LENGTH_SHORT);
                     toast.show();
-                    Intent intent = new Intent(getApplicationContext(), CentralActivity.class);
-                    startActivity(intent);
+                    nextActivity();
                 }else{
                     pin = 0;
                     resetCircles();
                     Toast toast = Toast.makeText(this, "PIN entries did not match, try again", Toast.LENGTH_LONG);
                     toast.show();
-                    title.setText("Enter a PIN to secure your information");
+                    title.setText("Step 1: Create a PIN to secure your information");
                     mode = PIN_SET;
                 }
                 break;

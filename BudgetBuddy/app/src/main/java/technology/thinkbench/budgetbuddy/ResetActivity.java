@@ -49,6 +49,10 @@ public class ResetActivity extends AppCompatActivity {
         SharedPreferences sharedPreferences = getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean("User", false);
+        editor.putBoolean("Tut", false);
+        editor.remove("Income");
+        editor.remove("Target");
+        editor.remove("Type");
         editor.putInt("Pin", 99999);
         editor.apply();
     }

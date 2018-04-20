@@ -1,18 +1,11 @@
 package technology.thinkbench.budgetbuddy;
 
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.Toast;
-
-import com.google.gson.*;
+import android.widget.Button;
 
 import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
@@ -22,6 +15,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        SharedPreferences sharedPreferences = getDefaultSharedPreferences(this);
+        if(!sharedPreferences.contains("User") || !sharedPreferences.getBoolean("User", false)){
+            Button button = (Button)findViewById(R.id.log_in);
+            button.setText("Create a PIN");
+        }
 
     }
 
