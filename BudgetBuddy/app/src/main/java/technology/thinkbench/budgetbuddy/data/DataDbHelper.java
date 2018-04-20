@@ -23,13 +23,13 @@ public class DataDbHelper extends SQLiteOpenHelper {
     //called the first time the db is created
     @Override
     public void onCreate(SQLiteDatabase db) {
-        // Create a String that contains the SQL statement to create the pets table
+        // Create a String that contains the SQL statement to create the expenditure table
         String SQL_CREATE_EXPENDITURE_TABLE =  "CREATE TABLE " + ExpenditureEntry.TABLE_NAME + " ("
                 + ExpenditureEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, "
                 + ExpenditureEntry.COLUMN_EXPENDITURE_LABEL + " TEXT NOT NULL, "
                 + ExpenditureEntry.COLUMN_EXPENDITURE_AMOUNT + " DECIMAL, "
                 + ExpenditureEntry.COLUMN_EXPENDITURE_TAG + " TEXT NOT NULL, "
-                + ExpenditureEntry.COLUMN_EXPENDITURE_DATE + " TIMESTAMP);";
+                + ExpenditureEntry.COLUMN_EXPENDITURE_DATE + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP);";
 
         // Execute the SQL statement
         db.execSQL(SQL_CREATE_EXPENDITURE_TABLE);

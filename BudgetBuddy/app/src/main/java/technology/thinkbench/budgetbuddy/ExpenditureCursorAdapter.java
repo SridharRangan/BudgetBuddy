@@ -8,6 +8,8 @@ import android.view.ViewGroup;
 import android.widget.CursorAdapter;
 import android.widget.TextView;
 
+import java.text.NumberFormat;
+
 import technology.thinkbench.budgetbuddy.data.DataContract.ExpenditureEntry;
 
 public class ExpenditureCursorAdapter extends CursorAdapter{
@@ -32,9 +34,11 @@ public class ExpenditureCursorAdapter extends CursorAdapter{
         int labelColumnIndex = cursor.getColumnIndex(ExpenditureEntry.COLUMN_EXPENDITURE_LABEL);
         int amountColumnIndex = cursor.getColumnIndex(ExpenditureEntry.COLUMN_EXPENDITURE_AMOUNT);
 
+        NumberFormat nf = NumberFormat.getCurrencyInstance();
+
         // Read the expenditure attributes from the Cursor
         String label = cursor.getString(labelColumnIndex);
-        String amount = cursor.getString(amountColumnIndex);
+        String amount = nf.format(cursor.getDouble(amountColumnIndex));
 
         // Update the TextViews with the attributes for the current pet
         nameTextView.setText(label);
