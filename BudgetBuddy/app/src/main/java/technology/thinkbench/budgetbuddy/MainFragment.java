@@ -48,28 +48,11 @@ public class MainFragment extends android.support.v4.app.Fragment implements and
     public MainFragment() {
         // Required empty public constructor
     }
-<<<<<<< HEAD
-    double d[] = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31};
-    double m[] = {800,800,800,0,0,0,0,0,1000,0,0,0,0,400,0,0,0,0,0,0,0,200,0,0,20,0,0,0,0,0,0};
-=======
->>>>>>> willis
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_main, container, false);
 
-<<<<<<< HEAD
-        GraphView graph = (GraphView) rootView.findViewById(R.id.graph);
-        LineGraphSeries<DataPoint> series = new LineGraphSeries<>(new DataPoint[] {
-                new DataPoint(0,0)
-
-        });
-        LineGraphSeries<DataPoint> series2 = new LineGraphSeries<>(new DataPoint[] {
-
-                new DataPoint(0,1600),
-                new DataPoint(31,1600)
-
-=======
         perDay = new double[31];
         aggregate = new double[31];
 
@@ -169,51 +152,17 @@ public class MainFragment extends android.support.v4.app.Fragment implements and
 
         LineGraphSeries<DataPoint> agg = new LineGraphSeries<>(new DataPoint[] {
             new DataPoint(0, 0)
->>>>>>> willis
         });
         for(int i =0; i < day; i++){
             agg.appendData(new DataPoint((i + 1), aggregate[i]), true, day);
         }
 
-<<<<<<< HEAD
-
-
-        });
-
-        series2.setColor(RED);
-        series3.setColor(GREEN);
-        double y=0;
-        double x=0;
-        for(int i=0;i<=31;i++) {
-            y = y + 51.16;
-            x = i;
-            series.appendData(new DataPoint(x,y),true,31);
-        }
-        series3.appendData(new DataPoint(0,0),true,1);
-        for(int j=0;j<=30;j++) {
-
-            series3.appendData(new DataPoint(j+1,m[j]),true,31);
-        }
-
-
-
-        //set Manual X Bounds
-        graph.getViewport().setXAxisBoundsManual(true);
-        graph.getViewport().setMinX(0.0);
-        graph.getViewport().setMaxX(31.0);
-
-        //set Manual Y Bounds
-        graph.getViewport().setYAxisBoundsManual(true);
-        graph.getViewport().setMinY(0.0);
-        graph.getViewport().setMaxY(2000.0);
-=======
         LineGraphSeries<DataPoint> projection = new LineGraphSeries<>(new DataPoint[]{
 
             new DataPoint(day, aggregate[day - 1]),
             new DataPoint(31, saving_target)
 
         });
->>>>>>> willis
 
         LineGraphSeries<DataPoint> trace = new LineGraphSeries<>(new DataPoint[]{
 
