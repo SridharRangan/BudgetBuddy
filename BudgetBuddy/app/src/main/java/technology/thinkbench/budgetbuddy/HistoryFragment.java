@@ -7,6 +7,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import technology.thinkbench.budgetbuddy.data.DataContract.ExpenditureEntry;
@@ -18,6 +19,7 @@ public class HistoryFragment extends android.support.v4.app.Fragment implements 
 
     /** Adapter for the ListView */
     ExpenditureCursorAdapter mCursorAdapter;
+    ListView expenditureListView;
 
     public HistoryFragment() {
         // Required empty public constructor
@@ -27,17 +29,17 @@ public class HistoryFragment extends android.support.v4.app.Fragment implements 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_history, container, false);
 
-        // Find the ListView which will be populated with the pet data
-        ListView expenditureListView = (ListView) rootView.findViewById(R.id.list);
+        // Find the ListView which will be populated with the expenditure data
+        expenditureListView = (ListView) rootView.findViewById(R.id.list);
 
         // Find and set empty view on the ListView, so that it only shows when the list has 0 items.
         View emptyView = rootView.findViewById(R.id.empty_view);
         expenditureListView.setEmptyView(emptyView);
 
-        // Setup an Adapter to create a list item for each row of pet data in the Cursor.
-        // There is no pet data yet (until the loader finishes) so pass in null for the Cursor.
         mCursorAdapter = new ExpenditureCursorAdapter(this.getContext(), null);
         expenditureListView.setAdapter(mCursorAdapter);
+
+        //setListViewHeightBasedOnChildren(expenditureListView);
 
         // Kick off the loader
         getLoaderManager().initLoader(EXPENDITURE_LOADER, null, this).forceLoad();
@@ -51,7 +53,9 @@ public class HistoryFragment extends android.support.v4.app.Fragment implements 
         String[] projection = {
                 ExpenditureEntry._ID,
                 ExpenditureEntry.COLUMN_EXPENDITURE_LABEL,
-                ExpenditureEntry.COLUMN_EXPENDITURE_AMOUNT };
+                ExpenditureEntry.COLUMN_EXPENDITURE_AMOUNT,
+                ExpenditureEntry.COLUMN_EXPENDITURE_TAG,
+                ExpenditureEntry.COLUMN_EXPENDITURE_NESS};
 
         // This loader will execute the ContentProvider's query method on a background thread
         return (new android.support.v4.content.CursorLoader(getActivity(),   // Parent activity context

@@ -5,51 +5,83 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".AddActivity">
+    tools:context=".AddActivity"
+    android:background="@color/softBackground"
+    android:layout_centerVertical="true">
 
-    <!-- Label -->
-    <TextView
-        android:text="Enter the details of the expenditure:"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-
-
-    <!-- Label field -->
-    <EditText
-        android:id="@+id/edit_expenditure_label"
-        android:hint="Expenditure Label"
-        android:inputType="textCapWords"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <!-- Amount field -->
-    <EditText
-        android:id="@+id/edit_expenditure_amount"
-        android:hint="Expenditure Amount"
-        android:inputType="numberDecimal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-
-    <!-- Tag -->
-    <TextView
-        android:text="Tag your expense:"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <Spinner
-        android:id="@+id/tag_spinner"
-        android:layout_marginTop="10dp"
-        android:layout_width="200dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_height="50dp"></Spinner>
-
-    <Button
-        android:id="@+id/savebutton"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Submit"
-        android:onClick="saveExpenditure"/>
+        android:orientation="vertical"
+        android:background="@drawable/layout_bg"
+        android:layout_margin="15dp"
+        android:padding="10dp">
+
+        <!-- Label -->
+        <TextView
+            android:text="Enter the details of the expenditure:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/add_activity_text_size"/>
+
+
+        <!-- Label field -->
+        <EditText
+            android:id="@+id/edit_expenditure_label"
+            android:hint="Expenditure Label"
+            android:inputType="textCapWords"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Amount field -->
+        <EditText
+            android:id="@+id/edit_expenditure_amount"
+            android:hint="Expenditure Amount"
+            android:inputType="numberDecimal"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+        <!-- Tag -->
+        <TextView
+            android:text="Tag your expense:"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/add_activity_text_size"/>
+
+        <Spinner
+            android:id="@+id/tag_spinner"
+            android:layout_marginTop="10dp"
+            android:layout_width="200dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="50dp"></Spinner>
+
+        <TextView
+            android:text="Was this a neccessary purchase?"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/add_activity_text_size"/>
+
+        <Spinner
+            android:id="@+id/ness_spinner"
+            android:layout_marginTop="10dp"
+            android:layout_width="200dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_height="50dp"></Spinner>
+
+        <Button
+            android:id="@+id/savebutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:onClick="saveExpenditure"/>
+
+    </LinearLayout>
 
 </LinearLayout>

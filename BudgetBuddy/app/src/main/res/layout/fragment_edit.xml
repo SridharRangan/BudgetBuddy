@@ -1,18 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/layout_bg"
+    android:padding="5dp">
 
     <TextView
-        android:id="@+id/empty_view"
-        android:text="Edit things here"
+        android:id="@+id/edit_intro"
+        android:text="Here you can make changes to your personal information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:textAppearance="?android:textAppearanceMedium"/>
 
+    <EditText
+        android:id="@+id/edit_income"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"/>
 
-</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+
+        <EditText
+            android:id="@+id/edit_savings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"/>
+
+        <Spinner
+            android:id="@+id/edit_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"></Spinner>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/edit_submit"
+        android:onClick="submit_changes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Submit Changes"/>
+
+
+</LinearLayout>

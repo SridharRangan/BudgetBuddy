@@ -20,7 +20,8 @@ public class AddActivity extends AppCompatActivity{
     private EditText mLabelEditText;
     private EditText mAmountEditText;
     private String mTagEditText;
-    private Spinner spinner;
+    private String mNessEditText;
+    private Spinner spinner, spinnerNess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,7 @@ public class AddActivity extends AppCompatActivity{
         mLabelEditText = (EditText) findViewById(R.id.edit_expenditure_label);
         mAmountEditText = (EditText) findViewById(R.id.edit_expenditure_amount);
         spinner = (Spinner) findViewById(R.id.tag_spinner);
+        spinnerNess = (Spinner) findViewById(R.id.ness_spinner);
 
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.tags_array,
                 android.R.layout.simple_spinner_dropdown_item);
@@ -38,10 +40,27 @@ public class AddActivity extends AppCompatActivity{
         spinner.setAdapter(adapter);
         spinner.setSelection(4);
 
+        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,R.array.ness_array,
+                android.R.layout.simple_spinner_dropdown_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerNess.setAdapter(adapter2);
+        spinnerNess.setSelection(0);
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             public void onItemSelected(AdapterView<?> parent, View v, int pos, long id) {
                 mTagEditText = parent.getItemAtPosition(pos).toString();
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+        spinnerNess.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            public void onItemSelected(AdapterView<?> parent, View v, int pos, long id) {
+                mNessEditText = parent.getItemAtPosition(pos).toString();
             }
 
             public void onNothingSelected(AdapterView<?> parent) {
@@ -58,6 +77,7 @@ public class AddActivity extends AppCompatActivity{
         String nameString = mLabelEditText.getText().toString().trim();
         String amountString = mAmountEditText.getText().toString().trim();
         String tagString = mTagEditText;
+        String nessString = mNessEditText;
 
 
 
@@ -67,6 +87,7 @@ public class AddActivity extends AppCompatActivity{
         values.put(ExpenditureEntry.COLUMN_EXPENDITURE_LABEL, nameString);
         values.put(ExpenditureEntry.COLUMN_EXPENDITURE_AMOUNT, amountString);
         values.put(ExpenditureEntry.COLUMN_EXPENDITURE_TAG, tagString);
+        values.put(ExpenditureEntry.COLUMN_EXPENDITURE_NESS, nessString);
 
         // This is a NEW expenditure, so insert a new pet into the provider
         Uri newUri = getContentResolver().insert(ExpenditureEntry.CONTENT_URI, values);

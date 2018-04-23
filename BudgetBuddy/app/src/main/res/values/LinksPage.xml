@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="link_title_array">
+        <item>Unspecified</item>
+        <item>Necessary</item>
+        <item>Discretionary</item>
+    </string-array>
+    <string-array name="link_desc_array">
+        <item>Unspecified</item>
+        <item>Necessary</item>
+        <item>Discretionary</item>
+    </string-array>
+    <string-array name="link_url_array">
+        <item>Unspecified</item>
+        <item>Necessary</item>
+        <item>Discretionary</item>
+    </string-array>
+</resources>

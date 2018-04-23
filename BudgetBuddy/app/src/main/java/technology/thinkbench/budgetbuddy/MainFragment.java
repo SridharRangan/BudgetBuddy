@@ -29,11 +29,8 @@ import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 
 public class MainFragment extends android.support.v4.app.Fragment implements android.support.v4.app.LoaderManager.LoaderCallbacks<Cursor>{
 
-    /** Identifier for the pet data loader */
+    /** Identifier for the expenditure data loader */
     private static final int EXPENDITURE_LOADER = 0;
-
-    /** Adapter for the ListView */
-    ExpenditureCursorAdapter mCursorAdapter;
 
     GraphView graph;
     private double perDay[];
@@ -69,14 +66,13 @@ public class MainFragment extends android.support.v4.app.Fragment implements and
         if(saving_type.equalsIgnoreCase("$")){
             saving_target = monthly_income - saving_amt;
         }else{
-            saving_target = monthly_income * (saving_amt/100);
+            saving_target = monthly_income - (monthly_income * (saving_amt/100));
         }
 
         Log.d("DEBUG", Float.toString(monthly_income));
         Log.d("DEBUG", Float.toString(saving_amt) + saving_type);
         Log.d("DEBUG", Double.toString(saving_target));
 
-        mCursorAdapter = new ExpenditureCursorAdapter(this.getContext(), null);
         graph = (GraphView) rootView.findViewById(R.id.graph);
 
         graph.setTitle("Spending");
@@ -115,7 +111,6 @@ public class MainFragment extends android.support.v4.app.Fragment implements and
 
     @Override
     public void onLoadFinished(android.support.v4.content.Loader<Cursor> loader, Cursor data) {
-        mCursorAdapter.swapCursor(data);
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
         graph.removeAllSeries();
@@ -144,6 +139,9 @@ public class MainFragment extends android.support.v4.app.Fragment implements and
             Log.d("DEBUG", Double.toString(perDay[i]));
             aggregate[i] = aggregate[i-1] + perDay[i];
         }
+
+        //rescale graph if aggregate is higher than income
+        graph.getViewport().setMaxY(Math.max(monthly_income, aggregate[day-1]));
 
         LineGraphSeries<DataPoint> target = new LineGraphSeries<>(new DataPoint[] {
             new DataPoint(0,saving_target),
@@ -197,7 +195,7 @@ public class MainFragment extends android.support.v4.app.Fragment implements and
 
     @Override
     public void onLoaderReset(android.support.v4.content.Loader<Cursor> loader) {
-        mCursorAdapter.swapCursor(null);
+
     }
 
 }

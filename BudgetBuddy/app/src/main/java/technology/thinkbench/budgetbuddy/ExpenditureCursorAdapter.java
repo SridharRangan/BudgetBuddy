@@ -29,20 +29,28 @@ public class ExpenditureCursorAdapter extends CursorAdapter{
         // Find individual views that we want to modify in the list item layout
         TextView nameTextView = (TextView) view.findViewById(R.id.name);
         TextView summaryTextView = (TextView) view.findViewById(R.id.summary);
+        TextView nessTextView = (TextView) view.findViewById(R.id.necessary);
+        TextView tagTextView = (TextView) view.findViewById(R.id.tag);
 
         // Find the columns of expenditure attributes that we're interested in
         int labelColumnIndex = cursor.getColumnIndex(ExpenditureEntry.COLUMN_EXPENDITURE_LABEL);
         int amountColumnIndex = cursor.getColumnIndex(ExpenditureEntry.COLUMN_EXPENDITURE_AMOUNT);
+        int tagColumnIndex = cursor.getColumnIndex(ExpenditureEntry.COLUMN_EXPENDITURE_TAG);
+        int nessColumnIndex = cursor.getColumnIndex(ExpenditureEntry.COLUMN_EXPENDITURE_NESS);
 
         NumberFormat nf = NumberFormat.getCurrencyInstance();
 
         // Read the expenditure attributes from the Cursor
         String label = cursor.getString(labelColumnIndex);
         String amount = nf.format(cursor.getDouble(amountColumnIndex));
+        String tag = cursor.getString(tagColumnIndex);
+        String ness = cursor.getString(nessColumnIndex);
 
         // Update the TextViews with the attributes for the current pet
         nameTextView.setText(label);
         summaryTextView.setText(amount);
+        tagTextView.setText(tag);
+        nessTextView.setText(ness);
     }
 
 }

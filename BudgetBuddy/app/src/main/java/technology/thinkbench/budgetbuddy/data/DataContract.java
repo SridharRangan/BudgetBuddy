@@ -68,6 +68,15 @@ public class DataContract {
          *
          * Type: TEXT
          */
+
+        public final static String COLUMN_EXPENDITURE_NESS = "necessary";
+
+        /**
+         * A tag to identify if the expenditure was necessary
+         *
+         * Type: TEXT
+         */
+
         public final static String COLUMN_EXPENDITURE_DATE = "date";
 
         /**

@@ -29,6 +29,7 @@ public class DataDbHelper extends SQLiteOpenHelper {
                 + ExpenditureEntry.COLUMN_EXPENDITURE_LABEL + " TEXT NOT NULL, "
                 + ExpenditureEntry.COLUMN_EXPENDITURE_AMOUNT + " DECIMAL, "
                 + ExpenditureEntry.COLUMN_EXPENDITURE_TAG + " TEXT NOT NULL, "
+                + ExpenditureEntry.COLUMN_EXPENDITURE_NESS + " TEXT NOT NULL, "
                 + ExpenditureEntry.COLUMN_EXPENDITURE_DATE + " TIMESTAMP DEFAULT CURRENT_TIMESTAMP);";
 
         // Execute the SQL statement

@@ -36,9 +36,9 @@ public class ResetActivity extends AppCompatActivity {
             finish();
         }else{
             TextView textView = (TextView) findViewById(R.id.reset_text);
-            textView.setText("You can simply hit the back button or close the app if you did not mean to reset your data. Remember that deleting your data is permanent!");
+            textView.setText("Remember that deleting your data is permanent! (Hit the back button to go back to the title screen)");
             Button button = (Button) findViewById(R.id.reset_button);
-            button.setText("Are you really sure?");
+            button.setText("I'm sure");
             repeat = true;
         }
     }
