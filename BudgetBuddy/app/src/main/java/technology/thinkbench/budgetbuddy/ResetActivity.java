@@ -1,6 +1,7 @@
 package technology.thinkbench.budgetbuddy;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -36,6 +37,7 @@ public class ResetActivity extends AppCompatActivity {
             finish();
         }else{
             TextView textView = (TextView) findViewById(R.id.reset_text);
+            textView.setTextColor(Color.RED);
             textView.setText("Remember that deleting your data is permanent! (Hit the back button to go back to the title screen)");
             Button button = (Button) findViewById(R.id.reset_button);
             button.setText("I'm sure");
@@ -56,7 +58,7 @@ public class ResetActivity extends AppCompatActivity {
         editor.remove("Month");
         editor.remove("Year");
         editor.remove("Summary");
-        editor.putInt("Pin", 99999);
+        editor.remove("Pin");
         editor.apply();
     }
 }

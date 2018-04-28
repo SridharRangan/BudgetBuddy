@@ -4,29 +4,36 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/layout_bg"
+    android:layout_margin="5dp"
+    android:padding="10dp"
     android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:text="@string/Tutorial_Welcome"
         android:textSize="7pt"
         android:textStyle="bold"/>
 
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="5dp" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:text="@string/Tutorial_Welcome2"
         android:textSize="7pt"
         android:textStyle="bold" />
 
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="5dp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:text="@string/Tutorial_Welcome3"
         android:textSize="7pt"
         android:textStyle="bold" />

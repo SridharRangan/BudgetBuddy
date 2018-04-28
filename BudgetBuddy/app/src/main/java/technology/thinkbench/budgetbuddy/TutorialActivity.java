@@ -35,7 +35,7 @@ public class TutorialActivity extends AppCompatActivity {
                 transaction.commit();
                 break;
             case 1:
-                button.setText("Tell me more!");
+                button.setText("What's next?");
                 transaction.replace(R.id.fragment_container, tut2);
                 transaction.commit();
                 break;

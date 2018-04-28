@@ -45,6 +45,7 @@ public class MainFragment extends android.support.v4.app.Fragment implements and
     LineChart graph;
     private double perDay[];
     private double aggregate[];
+    TextView a1, a2;
 
     Calendar lastCheck, today;
 
@@ -71,6 +72,9 @@ public class MainFragment extends android.support.v4.app.Fragment implements and
             aggregate[i] = 0;
         }
 
+        a1 = (TextView) rootView.findViewById(R.id.analysis_one);
+        a2 = (TextView) rootView.findViewById(R.id.analysis_two);
+
         SharedPreferences sharedPreferences = getDefaultSharedPreferences(getContext());
         monthly_income = sharedPreferences.getFloat("Income", 0);
         saving_amt = sharedPreferences.getFloat("Target", 0);
@@ -84,10 +88,85 @@ public class MainFragment extends android.support.v4.app.Fragment implements and
             saving_amt_fixed = monthly_income * (saving_amt/100);
         }
 
-        if(sharedPreferences.contains("Summary")){
-            TextView summary = (TextView) rootView.findViewById(R.id.summary_text);
-            summary.setText(sharedPreferences.getString("Summary", "Save Save Save"));
+        TextView summary = (TextView) rootView.findViewById(R.id.summary_text);
+        Calendar today = Calendar.getInstance(TimeZone.getDefault());
+        String topText;
+        switch(today.get(Calendar.DAY_OF_WEEK)){
+            case 1:
+                topText = "Sunday ";
+                break;
+            case 2:
+                topText = "Monday ";
+                break;
+            case 3:
+                topText = "Tuesday ";
+                break;
+            case 4:
+                topText = "Wednesday ";
+                break;
+            case 5:
+                topText = "Thursday ";
+                break;
+            case 6:
+                topText = "Friday ";
+                break;
+            case 7:
+                topText = "Saturday ";
+                break;
+            default:
+                topText = "";
+                break;
         }
+        switch(today.get(Calendar.MONTH)){
+            case 0:
+                topText += "January ";
+                break;
+            case 1:
+                topText += "February ";
+                break;
+            case 2:
+                topText += "March ";
+                break;
+            case 3:
+                topText += "April ";
+                break;
+            case 4:
+                topText += "May ";
+                break;
+            case 5:
+                topText += "June ";
+                break;
+            case 6:
+                topText += "July ";
+                break;
+            case 7:
+                topText += "August ";
+                break;
+            case 8:
+                topText += "September ";
+                break;
+            case 9:
+                topText += "October ";
+                break;
+            case 10:
+                topText += "November ";
+                break;
+            case 11:
+                topText += "December ";
+                break;
+            default:
+                topText = "";
+                break;
+        }
+        if(!topText.equalsIgnoreCase("")){
+            topText += Integer.toString(today.get(Calendar.DAY_OF_MONTH)) + "\n";
+        }
+        if(sharedPreferences.contains("Summary")){
+            topText += sharedPreferences.getString("Summary", "Save Save Save");
+        }else{
+            topText += "Keep on saving!";
+        }
+        summary.setText(topText);
 
         Log.d("DEBUG", Float.toString(monthly_income));
         Log.d("DEBUG", Float.toString(saving_amt) + saving_type);
@@ -150,6 +229,7 @@ public class MainFragment extends android.support.v4.app.Fragment implements and
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
         int daysInMonth = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        graph.getXAxis().setAxisMaximum(daysInMonth);
         graph.clear();
         int day = calendar.get(Calendar.DAY_OF_MONTH);
         try {
@@ -266,14 +346,42 @@ public class MainFragment extends android.support.v4.app.Fragment implements and
         graph.invalidate(); // refresh
 
         //do analysis here
-        float traceSlope, projectionSlope, remainingSpace, avgSpending;
+        double traceSlope, projectionSlope, remainingSpace, avgSpending, avgDiff;
         int daysLeft;
+        boolean over = false, met = false;
         daysLeft = daysInMonth - day + 1; //add 1 to count current day
         traceSlope = (saving_target)/(daysInMonth);
-        projectionSlope = (float)((saving_target - aggregate[day])/(daysLeft));
-        avgSpending = (float)(aggregate[day]/day);
-        remainingSpace = (float) (saving_target - aggregate[day]);
+        projectionSlope = ((saving_target - aggregate[day])/(daysLeft));
+        avgSpending = (aggregate[day]/day);
+        remainingSpace = (saving_target - aggregate[day]);
+        avgDiff = avgSpending - projectionSlope;
         //now do something with this info
+        NumberFormat nf = NumberFormat.getCurrencyInstance();
+        String aOne = "", aTwo = "";
+        if(remainingSpace > 0){
+            aOne = "You have " + Integer.toString(daysLeft) + " in the month, and you can only spend " + nf.format(remainingSpace) + " more. ";
+            aOne += "This means you have to keep your spending below an average of " + nf.format(projectionSlope) + " a day.";
+        }else if(remainingSpace == 0){
+            over = true;
+            met = true;
+            aOne = "You have " + Integer.toString(daysLeft) + " in the month, and you have exactly met your spending target.";
+        }else{
+            over = true;
+            aOne = "You have " + Integer.toString(daysLeft) + " in the month, and you have already gone over your saving target by " + nf.format((remainingSpace * -1)) + ".";
+        }
+        if(avgDiff > 0 && !over){
+            aTwo = "Your spending has averaged " + nf.format(avgSpending) + " a day, which is " + nf.format(avgDiff) + " above what it needs to be to hit your target. ";
+            aTwo += "Try to keep your discretionary purchases to a minimum for the rest of the month.";
+        }else if (!over){
+            aTwo = "Your spending has averaged " + nf.format(avgSpending) + " a day, which is in the range it needs to be to hit your target. Keep up the good work!";
+        }else if(met){
+            aTwo = "Try to hold off on purchases if you can, you're so close to meeting your goal!";
+        }else{
+            aTwo = "Even though you are past your target, you can still keep discretionary purchases to a minimum. Not hitting your target doesn't mean you should spend the rest of your money anyway.";
+        }
+
+        a1.setText(aOne);
+        a2.setText(aTwo);
     }
 
     @Override
