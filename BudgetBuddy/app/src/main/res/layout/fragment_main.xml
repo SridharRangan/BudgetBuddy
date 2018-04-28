@@ -1,17 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
+    <TextView
+        android:id="@+id/summary_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/layout_bg"
+        android:text="Save Save Save"
+        android:padding="5dp"
+        android:layout_margin="5dp"/>
 
-    <com.jjoe64.graphview.GraphView
-        android:layout_marginTop="10dp"
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/graph"
+        android:layout_margin="5dp"
         android:background="@drawable/layout_bg"
         android:layout_width="match_parent"
-        android:layout_height="200dip"
-        android:id="@+id/graph"/>
+        android:layout_height="200dip"/>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/layout_bg"
+        android:padding="5dp"
+        android:layout_margin="5dp">
 
-</RelativeLayout>
+        <TextView
+            android:id="@+id/analysis_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Some stuff"/>
+
+        <TextView
+            android:id="@+id/analysis_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="More stuff"/>
+
+    </LinearLayout>
+
+</LinearLayout>

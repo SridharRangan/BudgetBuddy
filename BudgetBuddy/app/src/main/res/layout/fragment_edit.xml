@@ -12,8 +12,7 @@
         android:id="@+id/edit_intro"
         android:text="Here you can make changes to your personal information"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:textAppearanceMedium"/>
+        android:layout_height="wrap_content"/>
 
     <EditText
         android:id="@+id/edit_income"
@@ -29,7 +28,7 @@
 
         <EditText
             android:id="@+id/edit_savings"
-            android:layout_width="match_parent"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:inputType="number"/>
 
@@ -44,7 +43,6 @@
 
     <Button
         android:id="@+id/edit_submit"
-        android:onClick="submit_changes"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

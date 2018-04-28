@@ -53,6 +53,9 @@ public class ResetActivity extends AppCompatActivity {
         editor.remove("Income");
         editor.remove("Target");
         editor.remove("Type");
+        editor.remove("Month");
+        editor.remove("Year");
+        editor.remove("Summary");
         editor.putInt("Pin", 99999);
         editor.apply();
     }

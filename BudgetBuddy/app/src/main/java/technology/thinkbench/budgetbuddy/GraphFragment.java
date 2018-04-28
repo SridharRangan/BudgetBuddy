@@ -25,6 +25,9 @@ public class GraphFragment extends android.support.v4.app.Fragment implements an
     /** Identifier for the expenditure data loader */
     private static final int EXPENDITURE_LOADER = 0;
 
+    private static final float GRAPH_TEXT_SIZE = 15;
+    private static final float GRAPH_VALUE_SIZE = 15;
+
     private PieChart breakdown, ness;
 
     public GraphFragment() {
@@ -41,14 +44,18 @@ public class GraphFragment extends android.support.v4.app.Fragment implements an
         breakdown.setHoleRadius(50f);
         breakdown.setTransparentCircleAlpha(0);
         breakdown.setCenterText("Your Spending");
-        breakdown.setCenterTextSize(10);
+        breakdown.setDescription(null);
         breakdown.setDrawEntryLabels(true);
+        breakdown.setCenterTextSize(GRAPH_TEXT_SIZE);
+        breakdown.setHoleColor(Color.LTGRAY);
 
         ness.setHoleRadius(50f);
         ness.setTransparentCircleAlpha(0);
         ness.setCenterText("Necessary Spending");
-        ness.setCenterTextSize(10);
+        ness.setDescription(null);
         ness.setDrawEntryLabels(true);
+        ness.setCenterTextSize(GRAPH_TEXT_SIZE);
+        ness.setHoleColor(Color.LTGRAY);
 
         getLoaderManager().initLoader(EXPENDITURE_LOADER, null, this).forceLoad();
 
@@ -138,7 +145,7 @@ public class GraphFragment extends android.support.v4.app.Fragment implements an
         //create the data set
         PieDataSet pieDataSet = new PieDataSet(pieEntries,"");
         pieDataSet.setSliceSpace(2);
-        pieDataSet.setValueTextSize(14);
+        pieDataSet.setValueTextSize(GRAPH_VALUE_SIZE);
         //add colors to dataset
         ArrayList<Integer> colors = new ArrayList<>();
         colors.add(Color.GRAY);
@@ -149,6 +156,7 @@ public class GraphFragment extends android.support.v4.app.Fragment implements an
         pieDataSet.setColors(colors);
         //add legend to chart
         Legend legend = breakdown.getLegend();
+        legend.setTextSize(GRAPH_TEXT_SIZE);
         legend.setForm(Legend.LegendForm.CIRCLE);
         legend.setXOffset(20);
         legend.setYOffset(20);
@@ -161,11 +169,12 @@ public class GraphFragment extends android.support.v4.app.Fragment implements an
         //create the data set
         PieDataSet pieDataSet2 = new PieDataSet(nessEntries,"");
         pieDataSet2.setSliceSpace(2);
-        pieDataSet2.setValueTextSize(14);
+        pieDataSet2.setValueTextSize(GRAPH_VALUE_SIZE);
         //add colors to dataset
         pieDataSet2.setColors(colors);
         //add legend to chart
         Legend legend2 = ness.getLegend();
+        legend2.setTextSize(GRAPH_TEXT_SIZE);
         legend2.setForm(Legend.LegendForm.CIRCLE);
         legend2.setXOffset(20);
         legend2.setYOffset(20);

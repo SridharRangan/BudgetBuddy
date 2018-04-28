@@ -2,6 +2,7 @@ package technology.thinkbench.budgetbuddy;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.FragmentTransaction;
@@ -11,7 +12,6 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-
 
 public class CentralActivity extends AppCompatActivity {
 
@@ -36,6 +36,13 @@ public class CentralActivity extends AppCompatActivity {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, fragment);
         transaction.commit();
+    }
+
+    public void goHome(){
+        MainFragment fragment1 = new MainFragment();
+        FragmentTransaction transaction1 = getSupportFragmentManager().beginTransaction();
+        transaction1.replace(R.id.fragment_container, fragment1);
+        transaction1.commit();
     }
 
     @Override

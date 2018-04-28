@@ -6,20 +6,44 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <com.github.mikephil.charting.charts.PieChart
+        <LinearLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:id="@+id/spending_breakdown"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_margin="5dp"
+            android:paddingTop="10dp"
+            android:background="@drawable/layout_bg">
 
-        <com.github.mikephil.charting.charts.PieChart
+            <com.github.mikephil.charting.charts.PieChart
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:id="@+id/spending_breakdown"/>
+
+            <View
+                android:layout_gravity="center_horizontal"
+                android:layout_width="200dp"
+                android:layout_height="1dp"
+                android:background="@android:color/darker_gray"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="20dp" />
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:layout_width="match_parent"
+                android:layout_height="400dp"
+                android:id="@+id/ness_breakdown" />
+
+        </LinearLayout>
+
+        <Space
             android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:id="@+id/ness_breakdown"/>
+            android:layout_height="10dp" />
 
     </LinearLayout>
 

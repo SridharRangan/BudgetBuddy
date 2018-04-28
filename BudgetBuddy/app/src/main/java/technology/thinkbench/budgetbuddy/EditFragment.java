@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import static android.preference.PreferenceManager.getDefaultSharedPreferences;
 public class EditFragment extends android.support.v4.app.Fragment {
 
     private Spinner spinner;
+    private Button button;
 
     private String type_original, type_new;
     private float income_original, target_original;
@@ -71,10 +73,17 @@ public class EditFragment extends android.support.v4.app.Fragment {
             }
         });
 
+        button = (Button) rootView.findViewById(R.id.edit_submit);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                submit_changes();
+            }
+        });
+
         return rootView;
     }
 
-    public void submit_changes(View view){
+    public void submit_changes(){
         //check for validity
         boolean changes = false;
         Float income_new, target_new;
@@ -125,9 +134,9 @@ public class EditFragment extends android.support.v4.app.Fragment {
         }
         editor.apply();
         if(changes){
-            Toast.makeText(getContext(), "Changes Applied", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Changes applied, use the home button to navigate away", Toast.LENGTH_LONG).show();
         }else{
-            Toast.makeText(getContext(), "You didn't make any changes", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "You didn't make any changes!", Toast.LENGTH_SHORT).show();
         }
 
     }

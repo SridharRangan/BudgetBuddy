@@ -16,9 +16,10 @@
         android:orientation="vertical">
 
         <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:padding="15dp"
         android:background="@drawable/layout_bg">
 
             <TextView
@@ -28,7 +29,7 @@
                 android:text="Enter PIN"
                 android:textStyle="bold"
                 android:textSize="18dp"
-                android:layout_margin="10dp"
+                android:layout_marginBottom="10dp"
                 android:layout_gravity="center_horizontal"/>
 
             <LinearLayout
@@ -41,25 +42,36 @@
                     android:id="@+id/imageview_circle1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
                     android:src="@drawable/circle"/>
+
+                <Space
+                    android:layout_width="9dp"
+                    android:layout_height="wrap_content" />
+
                 <ImageView
                     android:id="@+id/imageview_circle2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
                     android:src="@drawable/circle"/>
+
+                <Space
+                    android:layout_width="9dp"
+                    android:layout_height="wrap_content" />
+
                 <ImageView
                     android:id="@+id/imageview_circle3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
                     android:src="@drawable/circle"/>
+
+                <Space
+                    android:layout_width="9dp"
+                    android:layout_height="wrap_content" />
+
                 <ImageView
                     android:id="@+id/imageview_circle4"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_margin="6dp"
                     android:src="@drawable/circle"/>
 
             </LinearLayout>

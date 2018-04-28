@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="link_title_array">
-        <item>Unspecified</item>
-        <item>Necessary</item>
-        <item>Discretionary</item>
+        <item>54 Ways to Save Money</item>
+        <item>How to Save Money: 100 Great Tips to Get You Started</item>
+        <item>What is a Roth IRA?</item>
+        <item>Stock Basics Tutorial</item>
     </string-array>
     <string-array name="link_desc_array">
-        <item>Unspecified</item>
-        <item>Necessary</item>
-        <item>Discretionary</item>
+        <item>A great collection of tips for saving!</item>
+        <item>Whats better than 54 tips? 100 tips!</item>
+        <item>Already have some money saved and want to know what to do next? Consider putting it in a retirement fund</item>
+        <item>For a different strategy towards saved funds, take a look at more direct investment</item>
     </string-array>
     <string-array name="link_url_array">
-        <item>Unspecified</item>
-        <item>Necessary</item>
-        <item>Discretionary</item>
+        <item>https://americasaves.org/for-savers/make-a-plan-how-to-save-money/54-ways-to-save-money</item>
+        <item>https://www.thesimpledollar.com/little-steps-100-great-tips-for-saving-money-for-those-just-getting-started/</item>
+        <item>https://www.rothira.com/what-is-a-roth-ira</item>
+        <item>https://www.investopedia.com/university/stocks/</item>
     </string-array>
 </resources>

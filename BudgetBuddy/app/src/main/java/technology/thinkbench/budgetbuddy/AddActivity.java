@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -79,7 +80,22 @@ public class AddActivity extends AppCompatActivity{
         String tagString = mTagEditText;
         String nessString = mNessEditText;
 
+        Log.d("DEBUG", "label: " + nameString);
+        Log.d("DEBUG", Integer.toString(nameString.length()));
+        Log.d("DEBUG", "amount: " + amountString);
+        Log.d("DEBUG", Integer.toString(amountString.length()));
 
+        if(nameString.length() == 0){
+            Toast.makeText(this, "You didn't enter a label for the expenditure!", Toast.LENGTH_SHORT).show();
+            mLabelEditText.requestFocus();
+            return;
+        }else if(amountString.length() == 0){
+            Toast.makeText(this, "You didn't specify an amount for the expenditure!", Toast.LENGTH_SHORT).show();
+            mAmountEditText.requestFocus();
+            return;
+        }
+
+        Log.d("DEBUG", "Post value checks");
 
         // Create a ContentValues object where column names are the keys,
         // and pet attributes from the editor are the values.
