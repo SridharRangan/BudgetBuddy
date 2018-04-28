@@ -23,7 +23,7 @@
 
         <Button
             android:id="@+id/reset_button"
-            android:layout_width="300dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:text="Reset Data"
             android:onClick="confirm_delete"/>

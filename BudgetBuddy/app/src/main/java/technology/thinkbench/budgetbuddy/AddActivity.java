@@ -39,7 +39,7 @@ public class AddActivity extends AppCompatActivity{
                 android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        spinner.setSelection(4);
+        spinner.setSelection(3);
 
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this,R.array.ness_array,
                 android.R.layout.simple_spinner_dropdown_item);

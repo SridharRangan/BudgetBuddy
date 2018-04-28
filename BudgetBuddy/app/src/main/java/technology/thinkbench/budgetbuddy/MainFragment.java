@@ -359,15 +359,15 @@ public class MainFragment extends android.support.v4.app.Fragment implements and
         NumberFormat nf = NumberFormat.getCurrencyInstance();
         String aOne = "", aTwo = "";
         if(remainingSpace > 0){
-            aOne = "You have " + Integer.toString(daysLeft) + " in the month, and you can only spend " + nf.format(remainingSpace) + " more. ";
+            aOne = "You have " + Integer.toString(daysLeft) + " days left in the month, and you can only spend " + nf.format(remainingSpace) + " more. ";
             aOne += "This means you have to keep your spending below an average of " + nf.format(projectionSlope) + " a day.";
         }else if(remainingSpace == 0){
             over = true;
             met = true;
-            aOne = "You have " + Integer.toString(daysLeft) + " in the month, and you have exactly met your spending target.";
+            aOne = "You have " + Integer.toString(daysLeft) + " days left in the month, and you have exactly met your spending target.";
         }else{
             over = true;
-            aOne = "You have " + Integer.toString(daysLeft) + " in the month, and you have already gone over your saving target by " + nf.format((remainingSpace * -1)) + ".";
+            aOne = "You have " + Integer.toString(daysLeft) + " days left in the month, and you have already gone over your saving target by " + nf.format((remainingSpace * -1)) + ".";
         }
         if(avgDiff > 0 && !over){
             aTwo = "Your spending has averaged " + nf.format(avgSpending) + " a day, which is " + nf.format(avgDiff) + " above what it needs to be to hit your target. ";

@@ -13,7 +13,7 @@
         android:background="@drawable/layout_bg"
         android:text="Save Save Save"
         android:textColor="#000000"
-        android:padding="5dp"
+        android:padding="10dp"
         android:layout_margin="5dp"/>
 
     <com.github.mikephil.charting.charts.LineChart
